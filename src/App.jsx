@@ -95,14 +95,14 @@ function Msg({ name }) {
 
 function MovieData() {
   const movies = [
-    {
-      name: "Vikram",
-      poster:
-        "https://m.media-amazon.com/images/M/MV5BMmJhYTYxMGEtNjQ5NS00MWZiLWEwN2ItYjJmMWE2YTU1YWYxXkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_.jpg",
-      rating: 8.4,
-      summary:
-        "Members of a black ops team must track and eliminate a gang of masked murderers.",
-    },
+    // {
+    //   name: "Vikram",
+    //   poster:
+    //     "https://m.media-amazon.com/images/M/MV5BMmJhYTYxMGEtNjQ5NS00MWZiLWEwN2ItYjJmMWE2YTU1YWYxXkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_.jpg",
+    //   rating: 8.4,
+    //   summary:
+    //     "Members of a black ops team must track and eliminate a gang of masked murderers.",
+    // },
 
     {
       name: "Iron man 2",
