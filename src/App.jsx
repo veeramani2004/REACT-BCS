@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate, Route, Routes, useParams } from "react-router";
-import { AddMovies } from "./AddMovies";
+import { MovieList } from "./MovieList";
 import { ColorGame } from "./ColorGame";
 import { INITIAL_MOVIES } from "./INITIAL_MOVIES";
 import "./styles.css";
@@ -20,7 +20,7 @@ export default function App() {
       </nav>
       <Routes>
         <Route path="films" element={<Navigate to="/movies" replace />} />
-        <Route path="movies" element={<AddMovies />} />
+        <Route path="movies" element={<MovieList />} />
         <Route path="colorgame" element={<ColorGame />} />
         <Route path="userlist" element={<UserList />} />
 

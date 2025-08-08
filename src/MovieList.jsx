@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Movie } from "./Movie";
 
-export function AddMovies() {
+export function MovieList() {
   const [movielist, setMovielist] = useState([]);
   const [poster, setPoter] = useState("");
   const [name, setName] = useState("");
