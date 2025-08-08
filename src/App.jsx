@@ -1,14 +1,10 @@
+import { useEffect, useState } from "react";
+import { Link, Navigate, Route, Routes, useParams } from "react-router";
 import { AddMovies } from "./AddMovies";
 import { ColorGame } from "./ColorGame";
-import { Counter } from "./Counter";
 import { INITIAL_MOVIES } from "./INITIAL_MOVIES";
-import { MovieData } from "./MovieData.1";
-import { MovieDetailes } from "./MovieDetailes";
-import { MsgList } from "./MsgList";
 import "./styles.css";
 import { UserList } from "./UserList";
-import { useActionState, useState } from "react";
-import { Route, Routes, Link, Navigate, useParams } from "react-router";
 
 // Component = Logic + UI
 export default function App() {
@@ -18,34 +14,40 @@ export default function App() {
   return (
     <div className="App">
       <nav>
-        <Link to="/moviedata"> Movies | </Link>
         <Link to="/colorgame">colorgame | </Link>
         <Link to="/userlist">userlist | </Link>
-        <Link to="/movielist">Added-Movies</Link>
+        <Link to="/movies">Movies</Link>
       </nav>
       <Routes>
-        <Route path="films" element={<Navigate to="/movielist" replace />} />
-        <Route
-          path="movielist"
-          element={
-            <AddMovies movielist={movieList} setMovielist={setMovielist} />
-          }
-        />
-        <Route path="moviedata" element={<MovieData />} />
+        <Route path="films" element={<Navigate to="/movies" replace />} />
+        <Route path="movies" element={<AddMovies />} />
         <Route path="colorgame" element={<ColorGame />} />
         <Route path="userlist" element={<UserList />} />
 
         <Route
           path="movies/:id"
-          element={<WantedMovies movies={movieList} />}
+          element={<MovieDetails movies={movieList} />}
         />
       </Routes>
     </div>
   );
 }
-function WantedMovies({ movies }) {
+function MovieDetails() {
   const { id } = useParams();
-  const movie = movies[id];
+
+  const [movie, setMovie] = useState({});
+  async function getMovies() {
+    const response = await fetch(
+      "https://68959016039a1a2b288f7c62.mockapi.io/movies/" + id
+    );
+    const data = await response.json();
+    setMovie(data);
+  }
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+
   return (
     <div className="movie-detail-container">
       <iframe

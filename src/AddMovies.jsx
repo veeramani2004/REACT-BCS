@@ -1,21 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export function AddMovies({ movielist, setMovielist }) {
-  // const [movielist, setMovielist] = useState([]);
+export function AddMovies() {
+  const [movielist, setMovielist] = useState([]);
   const [poster, setPoter] = useState("");
   const [name, setName] = useState("");
   const [rating, setRating] = useState();
   const [summary, setSummary] = useState("");
 
-  const data = () => {
-    const newmoviedata = {
-      poster: poster,
-      name: name,
-      rating: rating,
-      summary: summary,
-    };
-    setMovielist([...movielist, newmoviedata]);
-  };
+  async function getMovies() {
+    const response = await fetch(
+      "https://68959016039a1a2b288f7c62.mockapi.io/movies"
+    );
+    const data = await response.json();
+    setMovielist(data);
+  }
+
+  useEffect(() => {
+    getMovies();
+  }, []);
 
   return (
     <div>
@@ -46,7 +48,7 @@ export function AddMovies({ movielist, setMovielist }) {
         placeholder="Enter movie summary"
         type="text"
       />
-      <button onClick={data}>Post</button>
+      <button>Post</button>
       {movielist.map((movie) => (
         <MoviesDetailes
           poster={movie.poster}
