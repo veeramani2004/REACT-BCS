@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Movie } from "./Movie";
 
 export function AddMovies() {
   const [movielist, setMovielist] = useState([]);
@@ -50,36 +51,8 @@ export function AddMovies() {
       />
       <button>Post</button>
       {movielist.map((movie) => (
-        <MoviesDetailes
-          poster={movie.poster}
-          name={movie.name}
-          summary={movie.summary}
-          rating={movie.rating}
-        />
+        <Movie movie={movie} id={movie.id} />
       ))}
-    </div>
-  );
-}
-function MoviesDetailes({ poster, name, summary, rating }) {
-  const [show, setshow] = useState(true);
-  const ratingStyles = {
-    color: rating >= 8 ? "green" : "red",
-  };
-
-  const summaryStyle = {
-    display: show ? "block" : "none",
-  };
-  return (
-    <div className="movie">
-      <img src={poster} alt={`${name}'s poster`} />
-      <div className="tittle">
-        <h1>{name}</h1>
-        <h1 style={ratingStyles}>⭐{rating}</h1>
-      </div>
-      <button onClick={() => setshow(!show)}>Taggle Summary</button>
-
-      {/* {show && <p>{summary}</p>} */}
-      <p style={summaryStyle}>{summary}</p>
     </div>
   );
 }
