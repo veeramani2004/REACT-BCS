@@ -1,6 +1,8 @@
 // Task - User (Component)
 // Presentation Component - Reusablity ⬆️
 
+import { Counter } from "./Counter";
+
 export function User({ name, pic }) {
   return (
     <div className="user-container">
@@ -8,6 +10,7 @@ export function User({ name, pic }) {
       <p>
         Hello, <span>{name} </span>🎉🎉
       </p>
+      <Counter />
     </div>
   );
 }

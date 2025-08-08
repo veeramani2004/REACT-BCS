@@ -1,6 +1,11 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
+  /* text-align: center; */
+  nav {
+    text-align: center;
+  }
+}
+.movie-data-container {
   margin: 0 auto;
   padding: 20px;
   display: flex;
@@ -49,4 +54,12 @@
   p {
     text-align: justify;
   }
+}
+
+.like-btn-container {
+  button {
+    font-size: 20px;
+  }
+  display: flex;
+  gap: 16px;
 }
