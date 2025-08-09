@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { MovieCounter } from "./MovieCounter";
 import { useNavigate } from "react-router";
+import { MovieCounter } from "./MovieCounter";
 
 export function Movie({
   movie: { id, poster, name, summary, rating },
@@ -30,6 +30,7 @@ export function Movie({
       <p style={summaryStyle}>{summary}</p>
 
       <MovieCounter />
+      <button onClick={() => navigate("/editmovie/" + id)}>EDIT</button>
       {deleteBtn}
     </div>
   );
