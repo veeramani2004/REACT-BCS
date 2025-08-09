@@ -6,7 +6,7 @@ export function MovieDetails() {
   const { id } = useParams();
 
   const [movie, setMovie] = useState({});
-  async function getMovies() {
+  async function getMovies(id) {
     const response = await fetch(
       "https://68959016039a1a2b288f7c62.mockapi.io/movies/" + id
     );
@@ -15,8 +15,8 @@ export function MovieDetails() {
   }
 
   useEffect(() => {
-    getMovies();
-  }, []);
+    getMovies(id);
+  }, [id]);
 
   return (
     <div className="movie-detail-container">

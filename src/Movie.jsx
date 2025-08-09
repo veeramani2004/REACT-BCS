@@ -2,7 +2,10 @@ import { useState } from "react";
 import { MovieCounter } from "./MovieCounter";
 import { useNavigate } from "react-router";
 
-export function Movie({ movie: { poster, name, summary, rating }, id }) {
+export function Movie({
+  movie: { id, poster, name, summary, rating },
+  deleteBtn,
+}) {
   const [show, setshow] = useState(true);
   const ratingStyles = {
     color: rating >= 8 ? "green" : "red",
@@ -27,6 +30,7 @@ export function Movie({ movie: { poster, name, summary, rating }, id }) {
       <p style={summaryStyle}>{summary}</p>
 
       <MovieCounter />
+      {deleteBtn}
     </div>
   );
 }
