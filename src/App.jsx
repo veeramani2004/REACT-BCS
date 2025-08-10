@@ -1,13 +1,13 @@
 import { Link, Navigate, Route, Routes } from "react-router";
-import { AddMovie } from "./AddMovie";
-import { ColorGame } from "./ColorGame";
-import { Home } from "./Home";
-import { MovieDetails } from "./MovieDetailes";
-import { MovieList } from "./MovieList";
-import { NotFound } from "./NotFound";
+import { AddMovie } from "./pages/AddMovie";
+import { ColorGame } from "./pages/ColorGame";
+import { Home } from "./pages/Home";
+import { MovieDetails } from "./pages/MovieDetailes";
+import { MovieList } from "./pages/MovieList";
+import { NotFound } from "./pages/NotFound";
 import "./styles.css";
-import { UserList } from "./UserList";
-import { EditMovie } from "./EditMovie";
+import { UserList } from "./pages/UserList";
+import { EditMovie } from "./pages/EditMovie";
 
 // Component = Logic + UI
 export default function App() {
