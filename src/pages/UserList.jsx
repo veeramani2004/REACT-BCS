@@ -1,4 +1,4 @@
-import { User } from "../User";
+import { User } from "../components/User";
 
 // JSX rule - only one parent element
 // React fragments
