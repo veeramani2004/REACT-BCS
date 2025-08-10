@@ -62,7 +62,7 @@ export function EditMovie() {
   };
 
   return (
-    <form onSubmit={editMovie}>
+    <form onSubmit={editMovie} className="edit-movie-form">
       <input
         value={name}
         onChange={(event) => setName(event.target.value)}

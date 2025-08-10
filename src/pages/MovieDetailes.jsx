@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import "../styles.css";
+import { useParams, useNavigate } from "react-router";
 
 export function MovieDetails() {
   const { id } = useParams();
@@ -18,8 +17,10 @@ export function MovieDetails() {
     getMovies(id);
   }, [id]);
 
+  const navigate = useNavigate();
   return (
     <div className="movie-detail-container">
+      <button onClick={() => navigate("/movies/")}>Back</button>
       <iframe
         width="100%"
         height="750"

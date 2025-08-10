@@ -1,17 +1,14 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 .App {
   font-family: sans-serif;
   /* text-align: center; */
   nav {
     text-align: center;
   }
-}
-.movie-data-container {
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-  flex-wrap: wrap;
 }
 
 .user-container {
@@ -39,20 +36,27 @@
 
 .movie {
   max-width: 300px;
-
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   img {
     width: 300px;
     height: 500px;
     object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0px 10px 0px 0px rgb(0 0 0 / 22%);
+    border-radius: 10px;
   }
-  .tittle {
-    display: flex;
-    justify-content: space-between;
-  }
-  p {
-    text-align: justify;
+  .content-container {
+    padding: 15px;
+    .tittle {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+    p {
+      text-align: justify;
+    }
   }
 }
 
@@ -62,4 +66,28 @@
   }
   display: flex;
   gap: 16px;
+}
+
+.movie-list-container {
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.add-movie-form,
+.edit-movie-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  input,
+  textarea,
+  button {
+    width: 600px;
+    height: 40px;
+  }
 }

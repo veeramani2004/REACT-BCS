@@ -19,19 +19,20 @@ export function Movie({
   return (
     <div className="movie">
       <img src={poster} alt={`${name}'s poster`} />
-      <div className="tittle">
-        <h1>{name}</h1>
-        <h1 style={ratingStyles}>⭐{rating}</h1>
+      <div className="content-container">
+        <div className="tittle">
+          <p>{name}</p>
+          <p style={ratingStyles}>⭐{rating}</p>
+        </div>
+        <p style={summaryStyle}>{summary}</p>
+        <button onClick={() => setshow(!show)}>Taggle Summary</button>
+        <button onClick={() => navigate("/movies/" + id)}> Trailer</button>
+        <MovieCounter />
+        <button onClick={() => navigate("/editmovie/" + id)}>EDIT</button>
+        {deleteBtn}
       </div>
-      <button onClick={() => setshow(!show)}>Taggle Summary</button>
-      <button onClick={() => navigate("/movies/" + id)}> Trailer</button>
 
       {/* {show && <p>{summary}</p>} */}
-      <p style={summaryStyle}>{summary}</p>
-
-      <MovieCounter />
-      <button onClick={() => navigate("/editmovie/" + id)}>EDIT</button>
-      {deleteBtn}
     </div>
   );
 }

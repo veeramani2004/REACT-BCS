@@ -32,7 +32,7 @@ export function MovieList() {
   };
 
   return (
-    <div>
+    <div className="movie-list-container">
       {movielist.map((movie) => (
         <Movie
           key={movie.id}

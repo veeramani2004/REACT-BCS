@@ -54,7 +54,7 @@ export function AddMovie() {
   };
 
   return (
-    <form onSubmit={addMovie}>
+    <form onSubmit={addMovie} className="add-movie-form">
       <input
         value={poster}
         onChange={(event) => setPoster(event.target.value)}
