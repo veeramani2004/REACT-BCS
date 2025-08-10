@@ -15,7 +15,7 @@ export function EditMovie() {
 
   const navigate = useNavigate();
 
-  async function getMovie() {
+  async function getMovie(id) {
     const response = await fetch(
       "https://68959016039a1a2b288f7c62.mockapi.io/movies/" + id,
       { method: "GET" }
