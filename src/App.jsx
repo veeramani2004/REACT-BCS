@@ -1,31 +1,45 @@
-import { Link, Navigate, Route, Routes } from "react-router";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import { Navigate, Route, Routes, useNavigate } from "react-router";
 import { AddMovie } from "./pages/AddMovie";
 import { ColorGame } from "./pages/ColorGame";
+import { EditMovie } from "./pages/EditMovie";
 import { Home } from "./pages/Home";
 import { MovieDetails } from "./pages/MovieDetailes";
 import { MovieList } from "./pages/MovieList";
 import { NotFound } from "./pages/NotFound";
-import "./styles.css";
 import { UserList } from "./pages/UserList";
-import { EditMovie } from "./pages/EditMovie";
-import { DrawerAppBar } from "./components/DrawerAppBar";
+import "./styles.css";
+import Button from "@mui/material/Button";
 
 // Component = Logic + UI
 export default function App() {
   // Logic Starts
 
   // Logic End
-
+  const navigate = useNavigate();
   return (
     <div className="App">
-      <DrawerAppBar />
-      {/* <nav>
-        <Link to="/">Home | </Link>
-        <Link to="/colorgame">colorgame | </Link>
-        <Link to="/movies">Movies | </Link>
-        <Link to="/movies/new">Add Movie | </Link>
-        <Link to="/userlist">userlist | </Link>
-      </nav> */}
+      <AppBar position="fixed">
+        <Toolbar>
+          <Button color="inherit" onClick={() => navigate("/")}>
+            Home
+          </Button>
+          <Button color="inherit" onClick={() => navigate("/movies")}>
+            Movies
+          </Button>
+          <Button color="inherit" onClick={() => navigate("/movies/new")}>
+            Add Movie
+          </Button>
+          <Button color="inherit" onClick={() => navigate("/colorgame")}>
+            Color Game
+          </Button>
+          <Button color="inherit" onClick={() => navigate("/userlist")}>
+            User List
+          </Button>
+        </Toolbar>
+      </AppBar>
+
       <div className="main-container">
         <Routes>
           <Route path="films" element={<Navigate to="/movies" replace />} />

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IconButton } from "@mui/material";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
+import Badge from "@mui/material/Badge";
 
 export function MovieCounter() {
   const [like, setLike] = useState(0);
@@ -9,16 +10,25 @@ export function MovieCounter() {
   // Dislike
   return (
     <div className="like-btn-container">
-      <IconButton color="primary" onClick={() => setLike(like + 1)}>
-        <ThumbUpIcon />
-        {like}
-      </IconButton>
-      <IconButton color="error" onClick={() => setDiselike(diseLike + 1)}>
-        <ThumbDownIcon />
-        {diseLike}
-      </IconButton>
-      {/* <button onClick={() => setLike(like + 1)}>👍 {like}</button> */}
-      {/* <button onClick={() => setDiselike(diseLike + 1)}>👎 {diseLike}</button> */}
+      <Badge
+        badgeContent={like}
+        color="primary"
+        onClick={() => setLike(like + 1)}
+      >
+        <IconButton>
+          <ThumbUpIcon color="primary" />
+        </IconButton>
+      </Badge>
+
+      <Badge
+        badgeContent={diseLike}
+        color="error"
+        onClick={() => setDiselike(diseLike + 1)}
+      >
+        <IconButton>
+          <ThumbDownIcon color="error" />
+        </IconButton>
+      </Badge>
     </div>
   );
 }
