@@ -1,3 +1,5 @@
+import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
 import { useEffect, useState } from "react";
 import { Movie } from "../components/Movie";
 
@@ -38,7 +40,14 @@ export function MovieList() {
           key={movie.id}
           movie={movie}
           deleteBtn={
-            <button onClick={() => deleteMovie(movie.id)}>🗑️ Delete Me</button>
+            <IconButton
+              aria-label="delete"
+              color="error"
+              onClick={() => deleteMovie(movie.id)}
+            >
+              <DeleteIcon />
+            </IconButton>
+            // <button onClick={() => deleteMovie(movie.id)}>🗑️ Delete Me</button>
           }
         />
       ))}

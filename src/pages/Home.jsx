@@ -1,3 +1,7 @@
 export function Home() {
-  return <h1>Welcome to movie App 🌸😎🌸</h1>;
+  return (
+    <div className="home-page-container">
+      <h1>Welcome to movie App 😎</h1>
+    </div>
+  );
 }

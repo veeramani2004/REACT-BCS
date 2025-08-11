@@ -96,7 +96,9 @@ export function EditMovie() {
         placeholder="Trailer"
       />
 
-      <button type="summit"> SAVE </button>
+      <button type="summit" style={{ backgroundColor: "blue" }}>
+        SAVE
+      </button>
     </form>
   );
 }

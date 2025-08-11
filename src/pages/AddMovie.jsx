@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 export function AddMovie() {
   const [poster, setPoster] = useState("");
@@ -54,41 +57,100 @@ export function AddMovie() {
   };
 
   return (
-    <form onSubmit={addMovie} className="add-movie-form">
-      <input
+    // <form onSubmit={addMovie} className="add-movie-form">
+    //   <input
+    //     value={poster}
+    //     onChange={(event) => setPoster(event.target.value)}
+    //     placeholder="Past the movie poster url"
+    //     type="text"
+    //   />
+    //   <input
+    //     value={name}
+    //     onChange={(event) => setName(event.target.value)}
+    //     placeholder="Enter movie name"
+    //     type="text"
+    //   />
+
+    //   <input
+    //     value={rating}
+    //     onChange={(event) => setRating(event.target.value)}
+    //     placeholder="Enter movie Rateing"
+    //     type="number"
+    //   />
+
+    //   <textarea
+    //     value={summary}
+    //     onChange={(event) => setSummary(event.target.value)}
+    //     placeholder="Enter movie summary"
+    //     type="text"
+    //   />
+    //   <input
+    //     value={trailer}
+    //     onChange={(event) => setTrailer(event.target.value)}
+    //     type="text"
+    //     placeholder="Trailer"
+    //   />
+
+    //   <button type="summit"> ➕ Add</button>
+    // </form>
+
+    <Box
+      component="form"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "10px",
+      }}
+      noValidate
+      autoComplete="off"
+      onSubmit={addMovie}
+      className="add-movie-form"
+    >
+      <TextField
         value={poster}
         onChange={(event) => setPoster(event.target.value)}
-        placeholder="Past the movie poster url"
-        type="text"
+        label="Movie Poster URL"
+        variant="outlined"
+        required
+        className="form-detailes"
       />
-      <input
+      <TextField
         value={name}
         onChange={(event) => setName(event.target.value)}
-        placeholder="Enter movie name"
-        type="text"
+        label="Movie Name"
+        variant="outlined"
+        required
+        className="form-detailes"
       />
-
-      <input
+      <TextField
         value={rating}
         onChange={(event) => setRating(event.target.value)}
-        placeholder="Enter movie Rateing"
+        label="Rating"
         type="number"
+        variant="outlined"
+        className="form-detailes"
       />
-
-      <textarea
+      <TextField
         value={summary}
         onChange={(event) => setSummary(event.target.value)}
-        placeholder="Enter movie summary"
-        type="text"
+        label="Summary"
+        multiline
+        rows={3}
+        variant="outlined"
+        className="form-detailes"
       />
-      <input
+      <TextField
         value={trailer}
         onChange={(event) => setTrailer(event.target.value)}
-        type="text"
-        placeholder="Trailer"
+        label="Trailer URL"
+        variant="outlined"
+        className="form-detailes"
       />
 
-      <button type="summit"> ➕ Add</button>
-    </form>
+      <Button type="submit" variant="contained" color="primary">
+        ➕ Add Movie
+      </Button>
+    </Box>
   );
 }
