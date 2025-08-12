@@ -8,26 +8,29 @@ import SearchIcon from "@mui/icons-material/Search";
 export function MovieList() {
   const [movielist, setMovielist] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   async function getMovies(searchTerm = "") {
+    setErrorMsg("");
     const url = new URL("https://68959016039a1a2b288f7c62.mockapi.io/movies");
 
     if (searchTerm) {
       url.searchParams.append("search", searchTerm);
     }
 
-    const response = await fetch(url, { method: "GET" });
-    const data = await response.json();
-    setMovielist(data);
+    try {
+      const response = await fetch(url, { method: "GET" });
+      const data = await response.json();
+      if (response.status == 404) {
+        throw new Error("Not found"); // manually
+      }
+      setMovielist(data);
+    } catch (err) {
+      console.log("Oops:", err);
+      // setMovies([]);
+      setErrorMsg("Movie not found 😔");
+    }
   }
-  // async function getMovies() {
-  //   const response = await fetch(
-  //     "https://68959016039a1a2b288f7c62.mockapi.io/movies",
-  //     { method: "GET" }
-  //   );
-  //   const data = await response.json();
-  //   setMovielist(data);
-  // }
 
   useEffect(() => {
     getMovies();
@@ -64,6 +67,8 @@ export function MovieList() {
           }}
           onChange={(event) => setSearchTerm(event.target.value)}
           value={searchTerm}
+          helperText={errorMsg}
+          error={errorMsg}
         />
       </form>
 
