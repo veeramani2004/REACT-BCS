@@ -123,3 +123,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.add-movie-form {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 30rem;
+
+  margin: 1.25rem auto;
+}
