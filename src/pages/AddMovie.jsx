@@ -3,14 +3,9 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useFormik } from "formik";
-import { object, string, number, date } from "yup";
+import { object, string, number } from "yup";
 
 export function AddMovie() {
-  // const [poster, setPoster] = useState("");
-  // const [name, setName] = useState("");
-  // const [rating, setRating] = useState("");
-  // const [summary, setSummary] = useState("");
-  // const [trailer, setTrailer] = useState("");
   const movieSchema = object({
     name: string().required(),
     poster: string().required().url().min(4),
