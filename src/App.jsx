@@ -11,6 +11,7 @@ import { NotFound } from "./pages/NotFound";
 import { UserList } from "./pages/UserList";
 import "./styles.css";
 import Button from "@mui/material/Button";
+import { Products } from "./pages/Products";
 
 // Component = Logic + UI
 export default function App() {
@@ -37,11 +38,15 @@ export default function App() {
           <Button color="inherit" onClick={() => navigate("/userlist")}>
             User List
           </Button>
+          <Button color="inherit" onClick={() => navigate("/products")}>
+            Products
+          </Button>
         </Toolbar>
       </AppBar>
 
       <div className="main-container">
         <Routes>
+          <Route path="products" element={<Products />} />
           <Route path="films" element={<Navigate to="/movies" replace />} />
           <Route path="movies" element={<MovieList />} />
           <Route path="movies/new" element={<AddMovie />} />
