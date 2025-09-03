@@ -5,11 +5,14 @@ import { Movie } from "../components/Movie";
 import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
 import { API } from "../global";
+import { useNavigate } from "react-router";
 
 export function MovieList() {
   const [movielist, setMovielist] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
 
   async function getMovies(searchTerm = "") {
     setErrorMsg("");
@@ -20,7 +23,15 @@ export function MovieList() {
     }
 
     try {
-      const response = await fetch(url, { method: "GET" });
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!response.ok) {
+        navigate("/login");
+      }
       const data = await response.json();
       if (response.status == 404) {
         throw new Error("Not found"); // manually
