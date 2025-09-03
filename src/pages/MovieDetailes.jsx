@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
+import { API } from "../global";
 
 export function MovieDetails() {
   const { id } = useParams();
 
   const [movie, setMovie] = useState({});
   async function getMovies(id) {
-    const response = await fetch(
-      "https://68959016039a1a2b288f7c62.mockapi.io/movies/" + id
-    );
+    const response = await fetch(`${API}/movies/` + id);
     const data = await response.json();
     setMovie(data);
   }

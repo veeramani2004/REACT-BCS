@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import { API } from "../global";
 
 export function EditMovie() {
   const { id } = useParams();
@@ -16,10 +17,7 @@ export function EditMovie() {
   const navigate = useNavigate();
 
   async function getMovie(id) {
-    const response = await fetch(
-      "https://68959016039a1a2b288f7c62.mockapi.io/movies/" + id,
-      { method: "GET" }
-    );
+    const response = await fetch(`${API}/movies/` + id, { method: "GET" });
     const data = await response.json();
 
     setName(data.name);

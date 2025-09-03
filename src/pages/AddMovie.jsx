@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useFormik } from "formik";
 import { object, string, number } from "yup";
+import { API } from "../global";
 
 export function AddMovie() {
   const movieSchema = object({
@@ -37,16 +38,13 @@ export function AddMovie() {
     // 2. Data - Body & JSON
     // 3. Headers - JSON
 
-    const response = await fetch(
-      "https://68959016039a1a2b288f7c62.mockapi.io/movies",
-      {
-        method: "POST",
-        body: JSON.stringify(newMovie),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await fetch(`${API}/movies`, {
+      method: "POST",
+      body: JSON.stringify(newMovie),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     const data = await response.json();
     console.log(data);
 

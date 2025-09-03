@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Movie } from "../components/Movie";
 import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
+import { API } from "../global";
 
 export function MovieList() {
   const [movielist, setMovielist] = useState([]);
@@ -12,7 +13,7 @@ export function MovieList() {
 
   async function getMovies(searchTerm = "") {
     setErrorMsg("");
-    const url = new URL("https://68959016039a1a2b288f7c62.mockapi.io/movies");
+    const url = new URL(`${API}/movies`);
 
     if (searchTerm) {
       url.searchParams.append("search", searchTerm);
@@ -39,10 +40,7 @@ export function MovieList() {
   const deleteMovie = async (id) => {
     console.log("Deleting...", id);
 
-    const response = await fetch(
-      `https://68959016039a1a2b288f7c62.mockapi.io/movies/${id}`,
-      { method: "DELETE" }
-    );
+    const response = await fetch(`${API}/movies/${id}`, { method: "DELETE" });
 
     console.log("Status:", response.status);
     const data = await response.json();
