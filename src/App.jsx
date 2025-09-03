@@ -12,6 +12,7 @@ import { UserList } from "./pages/UserList";
 import "./styles.css";
 import Button from "@mui/material/Button";
 import { Products } from "./pages/Products";
+import { LoginForm } from "./pages/LoginForm";
 
 // Component = Logic + UI
 export default function App() {
@@ -41,6 +42,9 @@ export default function App() {
           <Button color="inherit" onClick={() => navigate("/products")}>
             Products
           </Button>
+          <Button color="inherit" onClick={() => navigate("/login")}>
+            Login
+          </Button>
         </Toolbar>
       </AppBar>
 
@@ -54,6 +58,7 @@ export default function App() {
           <Route path="userlist" element={<UserList />} />
           <Route path="movies/:id" element={<MovieDetails />} />
           <Route path="editmovie/:id" element={<EditMovie />} />
+          <Route path="login" element={<LoginForm />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
